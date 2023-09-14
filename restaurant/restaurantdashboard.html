@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ctrl + EAT | Restaurant Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="restaurantdashboard.html">Ctrl + EAT | RESTAURANT</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="manageorders.html">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="managemenu.html">Menu Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="restaurantaccount.html">Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="restaurantlogin.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Charts Section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Amount by Date</h5>
+                        <canvas id="totalAmountByDateChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Orders by Restaurant and Payment Method</h5>
+                        <canvas id="ordersByRestaurantAndPaymentMethodChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            
+        </div>
+    </div>
+
+    <script>
+        // Placeholder data
+        const ordersData = [
+            { id: 1, restaurant: 'Restaurant A', amount: 120, date: '2023-08-01', paymentMethod: 'Credit Card' },
+            { id: 2, restaurant: 'Restaurant A', amount: 85, date: '2023-08-02', paymentMethod: 'Cash' },
+            { id: 3, restaurant: 'Restaurant A', amount: 150, date: '2023-08-03', paymentMethod: 'PayPal' },
+            { id: 4, restaurant: 'Restaurant A', amount: 200, date: '2023-08-04', paymentMethod: 'Credit Card' },
+            { id: 5, restaurant: 'Restaurant A', amount: 95, date: '2023-08-05', paymentMethod: 'Cash' },
+            // ... more orders
+        ];
+
+        // Placeholder configurations for other charts
+        // totalAmountByDateChart, paymentMethodDistributionChart, ordersByRestaurantAndPaymentMethodChart
+        // Total Amount by Date Chart
+    const totalAmountByDateChart = new Chart(document.getElementById('totalAmountByDateChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: ['2023-08-01', '2023-08-02', '2023-08-03', '2023-08-04', '2023-08-05'],
+            datasets: [{
+                label: 'Total Amount',
+                data: [120, 85, 150, 200, 95], // Replace with actual data
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Orders by Restaurant and Payment Method Chart
+    const ordersByRestaurantAndPaymentMethodChart = new Chart(document.getElementById('ordersByRestaurantAndPaymentMethodChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['Restaurant A'],
+            datasets: [{
+                label: 'Credit Card',
+                data: [5, 0, 1], // Replace with actual data
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }, {
+                label: 'Cash',
+                data: [10, 1, 0], // Replace with actual data
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }, {
+                label: 'PayPal',
+                data: [1, 0, 0], // Replace with actual data
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    </script>
+    <footer class="bg-light sticky-bottom text-center py-3">
+        <div class="container">
+            <p class="mb-0">&copy; 2023 Ctrl + EAT, Inc. All rights reserved.</p>
+        </div>
+    </footer>    
+</body>
+</html>
