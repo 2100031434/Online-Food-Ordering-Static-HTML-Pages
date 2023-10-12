@@ -35,85 +35,60 @@
         </div>
     </nav>
 
-    <!-- Orders List Section -->
+    <!-- Order Management Heading -->
     <section class="container my-4">
-        <h2 class="text-center mb-4">Manage Orders</h2>
+    <h2 class="text-center mb-4">Manage Orders</h2>
 
-        <!-- Search Bar -->
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search orders..." aria-label="Search orders">
-            <button class="btn btn-primary" type="button">Search</button>
+    <!-- Search Bar -->
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search orders..." aria-label="Search orders">
+        <button class="btn btn-primary" type="button">Search</button>
+    </div>
+
+    <!-- List of Orders -->
+    <div class="row mt-4">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Status</th>
+                        <th>Order Date</th>
+                        <th>Total</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Order 1 -->
+                    <tr>
+                        <td>XRF123</td>
+                        <td>John Doe</td>
+                        <td>Delivered</td>
+                        <td>2023-08-17</td>
+                        <td>Rs. 1300</td>
+                        <td>
+                            <button class="btn btn-success">Accept</button>
+                            <button class="btn btn-danger">Reject</button>
+                        </td>
+                    </tr>
+                    <!-- Order 2 -->
+                    <tr>
+                        <td>ABC456</td>
+                        <td>Jane Smith</td>
+                        <td>Processing</td>
+                        <td>2023-08-16</td>
+                        <td>Rs. 850</td>
+                        <td>
+                            <button class="btn btn-success">Accept</button>
+                            <button class="btn btn-danger">Reject</button>
+                        </td>
+                    </tr>
+                    <!-- Add more orders as needed -->
+                </tbody>
+            </table>
         </div>
-
-        <!-- Filters -->
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <select class="form-select">
-                    <option selected>Filter by Category</option>
-                    <!-- Add filter options here -->
-                </select>
-            </div>
-            <!-- Add more filter options here as needed -->
-        </div>
-
-        <!-- Orders Table -->
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Customer Name</th>
-                    <th>Order Details</th>
-                    <th>Customer Address</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Static data for restaurants (replace with actual data) -->
-                <tr>
-                    <td>Ram</td>
-                    <td>1 x Chicken Burger</td>
-                    <td>Klu, Vijayawada</td>
-                    <td>
-                        <button class="btn btn-info btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#editModal">Accept</button>
-                        <button class="btn btn-danger btn-sm">Reject</button>
-                    </td>
-                </tr>
-                <!-- Add more rows for other restaurants -->
-            </tbody>
-        </table>
-
-        <!-- Edit Modal -->
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Edit Restaurant</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Add form fields to update restaurant information here -->
-                        <form>
-                            <div class="mb-3">
-                                <label for="restaurantName" class="form-label">Restaurant Name</label>
-                                <input type="text" class="form-control" id="restaurantName">
-                            </div>
-                            <div class="mb-3">
-                                <label for="restaurantCategory" class="form-label">Category</label>
-                                <input type="text" class="form-control" id="restaurantCategory">
-                            </div>
-                            <div class="mb-3">
-                                <label for="restaurantLocation" class="form-label">Location</label>
-                                <input type="text" class="form-control" id="restaurantLocation">
-                            </div>
-                            <!-- Add more fields as needed -->
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save Changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
 
         <!-- Pagination -->
         <nav aria-label="Page navigation">
